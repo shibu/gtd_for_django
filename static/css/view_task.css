@@ -1,0 +1,143 @@
+img.check_box.checked {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 -16px;
+  height: 16px;
+  width: 16px;
+}
+
+img.check_box.checked:hover {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  height: 16px;
+  width: 16px;
+}
+
+img.check_box {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 -48px;
+  height: 16px;
+  width: 16px;
+}
+
+img.check_box:hover {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 -32px;
+  height: 16px;
+  width: 16px;
+}
+
+img.check_box.doing {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 -80px;
+  height: 16px;
+  width: 16px;
+}
+
+img.check_box.doing:hover {
+  background-image: url(/static/icons/checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 0 -64px;
+  height: 16px;
+  width: 16px;
+}
+
+.ui-datepicker {
+  width: 14em;
+}
+
+.ui-datepicker a {
+  border-bottom: none;
+}
+
+.flexigrid div.fbutton .do_today {
+  background: url(/static/icons/sun.gif) no-repeat center
+  left;
+}
+
+.flexigrid div.fbutton .deferment {
+  background: url(/static/icons/rain.gif) no-repeat center
+  left;
+}
+
+.flexigrid div.fbutton .to_memo {
+  background: url(/static/icons/clip.gif) no-repeat center
+  left;
+}
+
+.flexigrid div.fbutton .do_someday {
+  background: url(/static/icons/yacht.gif) no-repeat center
+  left;
+}
+
+.message_box {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px
+  z-index: 100;
+}
+
+.date
+{
+  color: #AD4C21;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  padding-bottom: 0px;
+}
+
+.date:hover
+{
+  background: #AD4C21;
+  color: #fff;
+}
+
+.text_tag
+{
+  color: #AD4C21;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  padding-bottom: 0px;
+}
+
+.text_tag:hover
+{
+  background: #AD4C21;
+  color: #fff;
+}
+
+.img_tag
+{
+  color: #AD4C21;
+  text-decoration: none;
+  padding-bottom: 0px;
+}
+
+.img_tag:hover
+{
+  background: #AD4C21;
+  color: #fff;
+}
+
+#tag_dialog {
+  padding: 5.5px 11px;
+}
+
+#tag_dialog_title {
+  padding: 5.5px 3.3px 3.3px 11px;
+}
+
+.fg-button {
+   outline: 0;
+   margin:0 4px 0 0;
+   padding: .4em 1em;
+   text-decoration:none !important;
+   cursor:pointer;
+   position: relative;
+   text-align: center;
+   zoom: 1;
+}

@@ -1,0 +1,10 @@
+.message_box {
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+
+#import_data {
+  width: 435px;
+  height: 280px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Robots" content="index,follow" />
+<meta name="css template author" content="Aaron Ganschow, aaron@ganschow.us" />
+<meta name="author" content="Shibukawa Yoshiki, yoshiki@shibu.jp" />
+<title>GTD+D -Author-</title>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/script/css/thickbox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/css/view_author.css" media="all" />
+<script type="text/javascript" src="/static/script/libraries.js"></script>
+</head>
+<body>
+<div id="head">
+  <div id="title">
+    GTD+D
+  </div>
+      <div id="menu">
+        <ul>
+          {% for tab in tabs %}{{ tab|safe }}
+          {% endfor %}
+          <li><a href="{{ app_url }}import" title="Import">Import</a></li>
+          <li class="active"><a href="{{ app_url }}author" title="Blank">Author</a></li>
+        </ul>
+      </div>
+</div>
+<div id="body_wrapper">
+  <div id="body">
+    <div id="all">
+      <div class="top"></div>
+      <div class="content">
+        <h1>Author</h1>
+        <a href="/static/images/author.jpg" title="Photo 2008/12" class="thickbox photo"><img src="/static/images/author_thumb.jpg" width="160" height="130" alt="" /></a>
+        <ul>
+          <li>Name: Shibukawa Yoshiki</li>
+          <li>Home: <a href="http://maps.google.co.jp/maps?hl=en&ie=UTF8&ll=36.556257,139.926167&spn=0.04578,0.103512&z=13">Utsunomiya, Japan</a></li>
+          <li>Mail: <tt>'eW9zaGlraUBzaGlidS5qcA==\n'.decode("base64")</tt></li>
+        </ul>
+        <h1>Thanks</h1>
+        <ul>
+          <li>Cool web template is designed by <a href="http://aaron.ganschow.us/">Aaron Ganschow</a></li>
+          <li>This is written in <a href="http://www.python.org/">Python</a>. Python is a powerful language!</li>
+          <li><a href="http://www.djangoproject.com/">Django</a>'s API stabiliy is confortable.</li>
+          <li><a href="http://jquery.com/">jQuery</a> helps me to write JavaScript.</li>
+          <li><a href="http://jquery.com/demo/thickbox/">ThickBox</a> is easy to use for a image gallary.</li>
+          <li>Useful <a href="http://start.typepad.jp/typecast/">Icon images by Six Apart Ltd</a> is licensed under a <a href="http://creativecommons.org/licenses/by/2.1/jp/deed.en_US">CC2.1</a></li>
+        </ul>
+      </div>
+      <div class="clearer"></div>
+      <div class="bottom"></div>
+    </div>
+    <div class="clearer"></div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div id="end_body"></div>
+<div id="footer"> Designed by <a href="http://aaron.ganschow.us/">Aaron Ganschow</a>.
+    Powered by <a href="http://www.python.org/">Python</a>,
+    <a href="http://www.djangoproject.com/">Django</a> and <a href="http://jquery.com/">jQuery</a>.
+    &copy; Copyright Shibukawa Yoshiki, 2009
+</div>
+
+</body>
+</html>

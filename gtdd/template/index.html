@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Robots" content="index,follow" />
+<meta name="css template author" content="Aaron Ganschow, aaron@ganschow.us" />
+<meta name="author" content="Shibukawa Yoshiki, yoshiki@shibu.jp" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/script/css/libraries.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/view_task.css" />
+<title>GTD+D</title>
+<script type="text/javascript" src="/static/script/libraries.js"></script>
+<script type="text/javascript" src="/static/script/gtdd_index.js"></script>
+<script type="text/javascript">{{ variables|safe }}</script>
+</head>
+<body>
+<div id="head">
+  <div id="title">
+    GTD+D
+  </div>
+  <div id="menu">
+    <ul>
+      {% for tab in tabs %}{{ tab|safe }}
+      {% endfor %}
+      <li><a href="{{ app_url }}import" title="Import">Import</a></li>
+      <li><a href="{{ app_url }}author" title="Author">Author</a></li>
+    </ul>
+  </div>
+</div>
+<div id="body_wrapper">
+  <div id="body">
+    <div id="split">
+      <div class="top">
+        {% if message %}
+        <div id="login_messagebox" class="ui-widget message_box">
+          <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">
+            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><span>{{ message }}</span>
+          </div>
+        </div>
+        {% endif %}
+        <div id="message_box" class="ui-widget message_box">
+          <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">
+            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span><span id="message_area"></span>
+          </div>
+        </div>
+      </div>
+      <div id="left">
+        <div class="content">
+          <form id="task_regist_form">
+            <input id="task_input" type="input" name="new_task" id="new_task" size="55" />
+            <input type="submit" value="Regist" />
+          </form>
+          <table id="task_table" style="display:none;"></table>
+        </div>
+      </div>
+      <div id="right">
+        <div class="content">
+          <h1>{{ view.title }}</h1>
+          <ul>
+            {% for view_menu in view_menu_list %}{{ view_menu|safe }}
+            {% endfor %}
+          </ul>
+          <hr />
+          <div id="datepicker"></div>
+          <hr />
+          <form method="post">
+            {% if user.is_authenticated %}
+            Welcome {{ user.username }}.<br />
+            <input type="hidden" name="method" value="logout" />
+            <input type="submit" value="Logout" /><br />
+            {% else %}
+            <input type="hidden" name="method" value="login" />
+            user id<br />
+            <input type="text" name="user_id" id="user_id" size="16" /><br />
+            password<br />
+            <input type="password" name="password" id="password" size="16" /><br />
+            <input type="submit" value="Login" /><br />
+            {% endif %}
+          </form>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+      <div class="bottom"></div>
+    </div>
+    <div class="clearer"></div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div id="end_body"></div>
+<div id="footer"> Designed by <a href="http://aaron.ganschow.us/">Aaron Ganschow</a>.
+    Powered by <a href="http://www.python.org/">Python</a>,
+    <a href="http://www.djangoproject.com/">Django</a> and <a href="http://jquery.com/">jQuery</a>.
+    &copy; Copyright Shibukawa Yoshiki, 2009
+</div>
+<div style="display:none;">
+  <div id="datetime-dialog" title="Set Date & Time">
+    <form>
+      <fieldset>
+        <legend><input type="checkbox" name="target_time" id="target_date_flag"/>Target Date</legend>
+        <label for="target_date">Date:</label>
+        <input type="text" id="target_date" maxlength="5" size="5"/><br/>
+        <label for="target_time">Time:</label>
+        <input type="text" id="target_time" maxlength="5" size="5"/>
+        <a href="#" id="target_decrement" class="fg-button ui-state-default ui-corner-all">-5min</a>
+      </fieldset>
+      <fieldset>
+        <legend><input type="checkbox" name="start_time" id="start_date_flag"/>Start Date</legend>
+        <label for="start_date">Date:</label>
+        <input type="text" id="start_date" maxlength="5" size="5"/><br/>
+        <label for="start_time">Time:</label>
+        <input type="text" id="start_time" maxlength="5" size="5"/>
+        <a href="#" id="start_decrement" class="fg-button ui-state-default ui-corner-all">-5min</a>
+      </fieldset>
+      <fieldset>
+        <legend><input type="checkbox" name="finished_time" id="finished_date_flag"/>Finished Date</legend>
+        <label for="finished_date">Date:</label>
+        <input type="text" id="finished_date" maxlength="5" size="5"/><br/>
+        <label for="finished_time">Time:</label>
+        <input type="text" id="finished_time" maxlength="5" size="5"/>
+        <a href="#" id="finished_decrement" class="fg-button ui-state-default ui-corner-all">-5min</a>
+      </fieldset>
+    </form>
+  </div>
+</div>
+</body>
+</html>

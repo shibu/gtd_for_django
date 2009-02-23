@@ -1,0 +1,22 @@
+#TB_window {
+    -moz-border-radius: 15px;
+}
+
+.photo {
+    float: right;
+}
+
+#left ul {
+  margin-left: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+#left li {
+  padding-left: 10px;
+  background-image: url(../images/list.gif);
+  background-repeat: no-repeat;
+  background-position: 0 6px;
+  font-size: 11px;
+  line-height:18px;
+}
