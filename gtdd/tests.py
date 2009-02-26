@@ -48,12 +48,18 @@ class AjaxUrlTest(URLTestCase):
         self.assert_match_url("_table/", urls.ajaxpatterns)
         self.assert_match_url("view/test/_table/", urls.ajaxpatterns)
         self.assert_match_url("view/test_tab/test_page/_table/", urls.ajaxpatterns)
+        self.assert_match_url("_datetime/", urls.ajaxpatterns)
+        self.assert_match_url("view/test/_datetime/", urls.ajaxpatterns)
+        self.assert_match_url("view/test_tab/test_page/_datetime/", urls.ajaxpatterns)
 
     def test_ajax_url2(self):
         self.assert_not_match_url("_tag_table", urls.pagepatterns)
         self.assert_not_match_url("_table", urls.pagepatterns)
         self.assert_not_match_url("view/test/_table/", urls.pagepatterns)
         self.assert_not_match_url("view/test_tab/test_page/_table/", urls.pagepatterns)
+        self.assert_not_match_url("_datetime", urls.pagepatterns)
+        self.assert_not_match_url("view/test/_datetime/", urls.pagepatterns)
+        self.assert_not_match_url("view/test_tab/test_page/_datetime/", urls.pagepatterns)
 
 
 class TaskCardTest(TestCase):

@@ -16,7 +16,7 @@ ajaxpatterns = patterns('gtd_site.gtdd.controller',
     (r'view/(?P<tab_name>[^\s_/][^\s/]*?)/(?P<view_name>[^\s_/][^\s/]*?)/_table/$', 'ajax_task_table'),
     (r'view/[^\s_/][^\s/]*?/[^\s_/][^\s/]*?/_datetime/$', 'ajax_datetime'),
     (r'view/(?P<tab_name>[^\s_/][^\s/]*?)/_table/$', 'ajax_task_table'),
-    (r'view/^\s_/][^\s/]*?/_datetime/$', 'ajax_datetime'),
+    (r'view/[^\s_/][^\s/]*?/_datetime/$', 'ajax_datetime'),
     (r'^_table/$', 'ajax_task_table'),
     (r'^_datetime/$', 'ajax_datetime'),
 )
