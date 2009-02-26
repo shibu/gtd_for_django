@@ -221,13 +221,21 @@ class TaskCard(models.Model):
             return self.finished_date.strftime("%m/%d %H:%M")
         if self.target_date is None:
             return ""
+        if self.target_date:
+            unfinished = self.target_date < date.today()
+        else:
+            unfinished = False
         if type_list[self.data_type] == "nextaction_week":
             start, end = date.OneWeek.get(self.target_date)
             datestr = "%s - %s" % (start.strftime("%m/%d"), end.strftime("%m/%d"))
+            unfinished = end < date.today()
+
         elif self.target_date.hour == 0 and self.target_date.minute == 0:
             datestr = self.target_date.strftime("%m/%d")
         else:
             datestr = self.target_date.strftime("%m/%d %H:%M")
+        if unfinished:
+            return '<span class="date unfinished">%s</span>' % datestr
         return '<span class="date">%s</span>' % datestr
 
     @classmethod

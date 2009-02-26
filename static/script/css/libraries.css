@@ -504,6 +504,12 @@ div.colCopy {
   padding-bottom: 4px;
   }
 
+.flexigrid tr.urow td
+  {
+  background: #fee;
+  border-top: 0px solid #fee;
+  }
+
 
 .flexigrid tr td.sorted
     {
@@ -516,11 +522,22 @@ div.colCopy {
       {
       }
 
+.flexigrid tr.urow td.sorted
+    {
+    background: #f3e0e0;
+    }
+
 
 .flexigrid tr.erow td
     {
     background: #f7f7f7;
     border-bottom: 1px solid #f7f7f7;
+    }
+
+.flexigrid tr.erow.urow td
+    {
+    background: #f7e7e7;
+    border-bottom: 1px solid #f7e7e7;
     }
 
 .flexigrid tr.erow td.sorted
@@ -533,10 +550,20 @@ div.colCopy {
       {
       }
 
+.flexigrid tr.erow.urow td.sorted
+    {
+    background: #e3dada;
+    border-bottom: 1px solid #e3dada;
+    }
+
 .flexigrid div.bDiv tr:hover td,
 .flexigrid div.bDiv tr:hover td.sorted,
 .flexigrid div.bDiv tr.trOver td.sorted,
 .flexigrid div.bDiv tr.trOver td
+.flexigrid div.bDiv tr.urow:hover td,
+.flexigrid div.bDiv tr.urow:hover td.sorted,
+.flexigrid div.bDiv tr.urow.trOver td.sorted,
+.flexigrid div.bDiv tr.urow.trOver td
   {
   background: #d9ebf5;
   border-left: 1px solid #eef8ff;
@@ -549,6 +576,12 @@ div.colCopy {
 .flexigrid div.bDiv tr.trOver.trSelected td,
 .flexigrid tr.trSelected td.sorted,
 .flexigrid tr.trSelected td
+.flexigrid div.bDiv tr.trSelected.urow:hover td,
+.flexigrid div.bDiv tr.trSelected.urow:hover td.sorted,
+.flexigrid div.bDiv tr.trOver.trSelected.urow td.sorted,
+.flexigrid div.bDiv tr.trOver.trSelected.urow td,
+.flexigrid tr.trSelected.urow td.sorted,
+.flexigrid tr.trSelected.urow td
   {
   background: #d5effc url(../images/hl.png) repeat-x top;
   border-right: 1px solid #d2e3ec;
@@ -560,6 +593,12 @@ div.colCopy {
 .flexigrid tr.trSelected td a
   {
   color: #eee;
+  }
+
+.flexigrid tr.urow.trSelected td.sorted a,
+.flexigrid tr.urow.trSelected td a
+  {
+  color: #fee;
   }
 
   /* novstripe adjustments */

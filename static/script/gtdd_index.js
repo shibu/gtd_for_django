@@ -97,6 +97,7 @@ $(document).ready(function() {
             ],
         buttons : buttons,
         onSuccess : function() {
+            $('.unfinished').parent().parent().parent().addClass("urow");
             $('img.check_box').click(toggle_checkbox);
             $('.text_tag').click(show_tag_dialog);
             $('.img_tag').click(show_tag_dialog);
@@ -106,6 +107,8 @@ $(document).ready(function() {
     });
     $('#datepicker').datepicker({
         inline: true,
+        changeMonth: true,
+        changeYear: true,
         onSelect: function(date) {
             $('#task_table').flexOptions({query:date, qtype:"date"});
             $('#task_table').flexReload();
@@ -134,7 +137,6 @@ var show_date_dialog = function() {
     var current = $(this);
     var tr = current.parent().parent().parent();
     tr.addClass("trSelected");
-    var dialog = $('#datetime-dialog').clone();
 
     url = location.href;
     while (url[url.length-1] == "#") {
@@ -146,12 +148,24 @@ var show_date_dialog = function() {
              id:tr.attr('id'),
            },
            function(return_value, status) {
-               init_datetime_dialog(dialog, return_value);
+               init_datetime_dialog(return_value);
            },
            "json");
 };
 
-var init_datetime_dialog = function(dialog, date_values) {
+var init_datetime_dialog = function(date_values) {
+    keys = ["target_date_flag", "target_date", "target_time",
+            "start_date_flag", "start_date", "start_time",
+            "finished_date_flag", "finished_date", "finished_time"];
+    for (var i in keys) {
+        var key = keys[i];
+        if (date_values[key]) {
+            $('#' + key).val(date_values[key]);
+        } else {
+            $('#' + key).val("");
+        }
+    }
+    var dialog = $('#datetime-dialog').clone();
     $('.fg-button', dialog).hover(
         function(){
             $(this).addClass("ui-state-hover");
@@ -159,13 +173,10 @@ var init_datetime_dialog = function(dialog, date_values) {
         function(){
             $(this).removeClass("ui-state-hover");
         }
-    )
-    for (var key in date_values) {
-        $('#' + key).val(date_values[key]);
-    }
+    );
     dialog.dialog({
         modal:true,
-        bgiframe: true,
+        bgiframe: false,
         buttons: {
             'Apply': function() {
                 $(this).dialog('close');
@@ -173,6 +184,10 @@ var init_datetime_dialog = function(dialog, date_values) {
             'Cancel': function() {
                 $(this).dialog('close');
             }
+        },
+        open: function(event, ui) {
+            $('.date_picker', dialog).datepicker({dateFormat: "yyyy/mm/dd"});
+            $('#ui-datepicker-div').css("z-index", 1050);
         }
     })
 }

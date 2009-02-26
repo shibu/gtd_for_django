@@ -62,7 +62,7 @@ def today():
 
 
 def tomorrow():
-    datetime.datetime(*time.localtime()[:3]) + datetime.timedelta(days=1)
+    return datetime.datetime(*time.localtime()[:3]) + datetime.timedelta(days=1)
 
 
 def next_week():

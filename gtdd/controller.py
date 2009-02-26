@@ -68,22 +68,22 @@ def ajax_tag_table(request, tag_id=None):
     return HttpResponse(json.dumps(result))
 
 
-def ajax_datetime(request, task_id):
+def ajax_datetime(request, task_id=None):
     if not task_id:
-        task_id = request.POST.get("id")
+        task_id = request.POST.get("id")[3:]
     taskcard = models.TaskCard.objects.get(id=int(task_id))
     result = {}
     if taskcard.target_date is not None:
         result["target_date_flag"] = "checked"
-        result["target_date"] = taskcard.target_date.strftime("%m/%d")
+        result["target_date"] = taskcard.target_date.strftime("%Y/%m/%d")
         result["target_time"] = taskcard.target_date.strftime("%H:%M")
     if taskcard.start_date is not None:
         result["start_date_flag"] = "checked"
-        result["start_date"] = taskcard.start_date.strftime("%m/%d")
+        result["start_date"] = taskcard.start_date.strftime("%Y/%m/%d")
         result["start_time"] = taskcard.start_date.strftime("%H:%M")
     if taskcard.finished_date is not None:
         result["finished_date_flag"] = "checked"
-        result["finished_date"] = taskcard.finished_date.strftime("%m/%d")
+        result["finished_date"] = taskcard.finished_date.strftime("%Y/%m/%d")
         result["finished_time"] = taskcard.finished_date.strftime("%H:%M")
     return HttpResponse(json.dumps(result))
 
