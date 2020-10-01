@@ -1,0 +1,9 @@
+import requests
+
+headers = {
+            'cache-control': "no-cache"
+        }
+
+api_url=""
+response = requests.get(api_url, headers)
+print(response)
